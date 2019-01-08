@@ -6,6 +6,7 @@
 package lendle.courses.wp.finalexam_wp;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
@@ -34,6 +35,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -49,6 +51,17 @@ public class Main extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
@@ -106,7 +119,7 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = (DefaultListModel) this.jList1.getModel();
         if (model.contains(title)) {
             //Q1: 開啟 message dialog （10%）
-            
+            JOptionPane.showMessageDialog(this, "不可以重複");
             ////////////////////
             return;
         }
@@ -115,6 +128,11 @@ public class Main extends javax.swing.JFrame {
         //Q2: 建立 TaskFrame（等同於 JInternalFrame）
         //加到 jDesktopPane1 (20%)
         
+        this.setContentPane(jDesktopPane1);
+        
+        TaskFrame taskFrame=new TaskFrame();
+        this.getContentPane().add(taskFrame);
+       // this.getContentPane().add(TaskFrame);
         ///////////////////////////////////////
     }//GEN-LAST:event_buttonNewActionPerformed
 
@@ -133,7 +151,10 @@ public class Main extends javax.swing.JFrame {
             //Q3: 建立 TaskFrame（等同於 JInternalFrame）
             //設定 noteTitle, noteContent
             //加到 jDesktopPane1 (20%)
-            
+            this.setContentPane(jDesktopPane1);
+        
+            TaskFrame taskFrame=new TaskFrame();
+            this.getContentPane().add(taskFrame);
             //////////////////////////////////////////
         }
     }//GEN-LAST:event_jList1MouseClicked
@@ -178,6 +199,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JToolBar jToolBar1;
